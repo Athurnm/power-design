@@ -244,6 +244,24 @@ Matchmade combines the rigor of financial ledger integrity with the velocity of 
 
 ---
 
+## Official Matchmade 3-Bar Logo (SSOT)
+
+Extracted from Matchmade engineering repository `reactor` (`src/constants/icons.ts` and `src/assets/matchmade-logo-with-text.svg`). The mark features three forward-leaning dynamic slabs symbolizing data pipeline alignment and reconciliation ledger integrity.
+
+```html
+<svg width="37" height="30" viewBox="0 0 37 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M28.8543 15H24.8105L27.5752 22.5483H31.6175L28.8543 15Z" fill="currentColor"/>
+  <path d="M21.9709 7.45312L18.3388 17.3728L17.4715 15.0014H13.4277L16.191 22.5497H20.4882L26.0146 7.45312H21.9709Z" fill="currentColor"/>
+  <path d="M10.5792 7.45312L5.05273 22.5497H9.09647L14.6229 7.45312H10.5792Z" fill="currentColor"/>
+</svg>
+```
+
+- **Dark Presentations / Canvas:** Use with `color: #72E8A6` (Reconciliation Mint) or `#FFFFFF`.
+- **Light Surfaces / In-App:** Use with `color: #212121` (Charcoal) or `#2563EB` (Action Blue).
+- **Wordmark Typography:** Pair with "matchmade" in `Plus Jakarta Sans`, weight 700, letter-spacing `-0.025em`.
+
+---
+
 ## Colors
 
 ### Dark Marketing & Presentation Palette
@@ -280,13 +298,30 @@ Matchmade combines the rigor of financial ledger integrity with the velocity of 
 5. **Green (`#16A34A` / `#DCFCE7`)**: Worker tables / STT transformation
 6. **Pink (`#DB2777` / `#FCE7F3`)**: Multiple views / Dual-ledger Matchmap
 
+### 10-Color Stakeholder & Persona Avatar System
+Matchmade interfaces and presentations use a standardized 10-color avatar system for personas, Datmols, engineers, and audit trails:
+
+| Key | Background | Text Color | Usage / Role Mapping |
+|:---|:---|:---|:---|
+| `green` | `#DCFCE7` | `#166534` | Data Modeler (Datmol), Balanced Ledgers |
+| `indigo` | `#E8EAF6` | `#283593` | Product Management, Core Platform |
+| `teal` | `#E0F2F1` | `#004D40` | Financial Operations, Controllers |
+| `navy` | `#DBEAFE` | `#1E40AF` | Engineering, Backend & Architecture |
+| `orange` | `#FEF3C7` | `#92400E` | External Vendors, Exceptions, Discrepancies |
+| `magenta` | `#FCE7F3` | `#9D174D` | Executive Stakeholders, C-Level |
+| `purple` | `#F3E8FF` | `#6B21A8` | Data Sources, BigQuery Integrations |
+| `amber` | `#FFEDD5` | `#9A3412` | Manual Overrides, Warnings |
+| `cyan` | `#E0F2FE` | `#075985` | Ingestion Pipelines, STT Workers |
+| `slate` | `#F1F5F9` | `#334155` | System Bots, Machine Accounts |
+
 ---
 
 ## Typography
 
-- **Display & Headings:** `Plus Jakarta Sans`, `Inter`, `sans-serif` (Weights: 600, 700, negative tracking on display sizes)
-- **Body & Tables:** `Inter`, `Geist Sans`, `sans-serif` (Weights: 400, 500, 600, with `font-feature-settings: "tnum"`)
+- **Display & Headings:** `Plus Jakarta Sans`, `Inter`, `sans-serif` (Weights: 600, 700, negative tracking on display sizes: `-0.025em`)
+- **Body & Tables:** `Inter`, `Geist Sans`, `sans-serif` (Weights: 400, 500, 600)
 - **Monospace & Code:** `Geist Mono`, `JetBrains Mono`, `monospace` (For `matchmade_bq_id`, SQL, DAG node keys)
+- **Financial Figures & Table Metrics:** MUST use `font-variant-numeric: tabular-nums` and `font-feature-settings: "tnum" 1` for all transaction amounts, counts, and IDs to guarantee clean vertical alignment.
 
 | Role | Size | Weight | Line Height |
 |:---|:---|:---|:---|
@@ -317,12 +352,41 @@ Matchmade combines the rigor of financial ledger integrity with the velocity of 
 
 - **Tone:** Authoritative, technical, high-precision, calm, ledger-grade.
 - **Energy:** Focused, efficient, enterprise-ready.
-- **Audience:** Financial Controllers, Operations Managers, Data Modelers, and Enterprise Reconciliation Specialists.
+- **Audience:** Financial Controllers, Operations Managers, Data Modelers (Datmol), and Enterprise Reconciliation Specialists.
 
 ### Canonical Voice Samples
 - *"All in One Reconciliation - Streamline transaction matching, data parsing, reconciliation, and consolidation with automation."*
 - *"All Data Sources in One Place. All Reconciliation in One Flow."*
 - *"Visual DAG pipelines link multi-source ledgers with automated transformation and exception routing."*
+
+---
+
+## Matchmade Enterprise Cinema Presentation Pattern
+
+When generating slides for Matchmade executive reviews, product challenges, or stakeholder presentations, adhere to the **Cinema Presentation Pattern**:
+
+1. **Full-Viewport Auto-Scale:**
+   - Standard 16:9 canvas at `1440x810` or `1920x1080`.
+   - Never cap the scale at `1.0`. Allow the slide stage to scale dynamically to 96-98% of the browser viewport:
+     ```javascript
+     function resizeStage() {
+       const padX = 20, padY = 20;
+       const availW = window.innerWidth - padX * 2;
+       const availH = window.innerHeight - padY * 2;
+       const scale = Math.min(availW / 1440, availH / 810);
+       stage.style.transform = `translate(-50%, -50%) scale(${scale})`;
+     }
+     ```
+2. **Proximity Auto-Hiding Controls:**
+   - Top branded header and bottom navigation bar should be hidden offscreen by default (`transform: translateY(-100%)` and `translateY(100%)`).
+   - Reveal smoothly (`transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1)`) only when the mouse cursor enters within 48px of the top edge or 52px of the bottom edge.
+   - Include a 350ms debounce grace timer so users can comfortably interact with buttons without accidental flickering.
+3. **Ambient Progress Bar:**
+   - Maintain a subtle 3px progress bar in Reconciliation Mint (`#72E8A6`) along the extreme bottom viewport edge at all times, ensuring visual orientation even while control bars are hidden.
+4. **Executive Presenter Toolkit:**
+   - Include slide speaker notes drawer toggled via the 'N' key or notes button.
+   - Include a 12-slide thumbnail grid overview modal toggled via the 'O' key or grid button.
+   - Support standard keyboard arrows (Left/Right) and Home/End navigation.
 
 ---
 
@@ -355,6 +419,18 @@ Matchmade combines the rigor of financial ledger integrity with the velocity of 
   --mm-light-border-strong: #CBD5E1;
   --mm-light-text: #0F172A;
   --mm-light-muted: #475569;
+  
+  /* 10-Color Stakeholder Avatars */
+  --mm-avatar-green-bg: #DCFCE7;  --mm-avatar-green-fg: #166534;
+  --mm-avatar-indigo-bg: #E8EAF6; --mm-avatar-indigo-fg: #283593;
+  --mm-avatar-teal-bg: #E0F2F1;   --mm-avatar-teal-fg: #004D40;
+  --mm-avatar-navy-bg: #DBEAFE;   --mm-avatar-navy-fg: #1E40AF;
+  --mm-avatar-orange-bg: #FEF3C7; --mm-avatar-orange-fg: #92400E;
+  --mm-avatar-magenta-bg: #FCE7F3;--mm-avatar-magenta-fg: #9D174D;
+  --mm-avatar-purple-bg: #F3E8FF; --mm-avatar-purple-fg: #6B21A8;
+  --mm-avatar-amber-bg: #FFEDD5;  --mm-avatar-amber-fg: #9A3412;
+  --mm-avatar-cyan-bg: #E0F2FE;   --mm-avatar-cyan-fg: #075985;
+  --mm-avatar-slate-bg: #F1F5F9;  --mm-avatar-slate-fg: #334155;
   
   /* Radii */
   --mm-radius-sm: 6px;

@@ -32,7 +32,7 @@ If the request already makes it obvious ("build me a landing page for…", "a pi
 
 Both paths start here. Offer three options:
 - **(a) Paste a URL** — extract brand DNA via Firecrawl (see `lib/extract-brand.md`).
-- **(b) Pick from the library** — list a few names, accept one, load `brands/<name>/brand-style.md`.
+- **(b) Pick from the library** -- list a few names (e.g. Matchmade, Stripe, Linear, Vercel, Apple), accept one, load `brands/<name>/brand-style.md`.
 - **(c) Default** — skip, use a neutral house style.
 
 ### When the user pastes a URL
@@ -83,8 +83,17 @@ A **single self-contained HTML file** (default `~/Desktop/<topic>-slides.html`):
 - [ ] **#17** Proximity: related ≤16px, unrelated ≥48px.
 - [ ] **#18** Data-ink ≥80%; no 3D/gradients/chartjunk.
 - [ ] **#19** Headline + key visual top-left band.
-- [ ] **#20** One mode per deck (presenter OR document) — never mix.
+- [ ] **#20** One mode per deck (presenter OR document) -- never mix.
 - [ ] **#21 (default ON)** Brand logo on every slide unless opted out.
+
+### Enterprise Cinema Deck Pattern (Matchmade Standard)
+When designing internal enterprise decks, executive checkpoints, or technical walkthroughs for Matchmade:
+- **Canvas**: Dual-canvas dark theme (`#121316` slate background, `#1E2025` card surface, `#72E8A6` reconciliation mint focal accent).
+- **Layout**: Full-viewport scaling (`resizeStage()` without artificial scale ceiling), utilizing 98% of available screen real estate.
+- **Auto-Hide Chrome**: Top header and bottom controls hide offscreen by default and smoothly reveal upon mouse proximity (<48px from top, <52px from bottom) with a 350ms grace timer.
+- **Ambient Progress**: A persistent 3px mint line pinned along the viewport bottom keeps attendees oriented while controls are hidden.
+- **Tooling**: Built-in slide overview modal ('O' key) and speaker notes drawer ('N' key).
+- **Brand SSOT**: Reference `brands/matchmade/brand-style.md` for the official 3-bar logo vector, 10-color avatar system, and tabular numerical styling (`tabular-nums`).
 
 ---
 
